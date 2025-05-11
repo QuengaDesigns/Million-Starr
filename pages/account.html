@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account - Million Starr</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <div class="nav-left">
+        <button class="dropbtn" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu">☰</button>
+        <div class="dropdown-content" id="main-menu">
+          <a href="../index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="collections.html">Collections</a>
+          <a href="posts.html">Posts</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="nav-center">
+        <a href="../index.html" class="logo" aria-label="Million Starr Home">Million Starr</a>
+      </div>
+      <div class="nav-right nav-icons">
+        <a href="#" id="search-btn" aria-label="Search"><i class="fas fa-search"></i></a>
+        <a href="cart.html" aria-label="Cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="account.html" aria-label="Account"><i class="fas fa-user"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Search Overlay -->
+  <div id="search-overlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);z-index:2000;align-items:center;justify-content:center;">
+    <form id="search-form" style="background:#fff;padding:32px 24px;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,0.15);display:flex;flex-direction:column;align-items:center;min-width:300px;">
+      <label for="search-input" style="font-size:1.2em;margin-bottom:10px;">Search Million Starr</label>
+      <input id="search-input" type="text" placeholder="Search for products, categories, or pages..." style="width:100%;padding:10px 12px;font-size:1em;border-radius:6px;border:1px solid #ccc;margin-bottom:16px;">
+      <div style="display:flex;gap:10px;">
+        <button type="submit" class="cta">Search</button>
+        <button type="button" id="close-search" class="cta" style="background:#dc3545;">Close</button>
+      </div>
+    </form>
+  </div>
+
+  <main>
+    <section class="hero">
+      <h1>Your Account</h1>
+      <p>Manage your profile, orders, and settings.</p>
+    </section>
+    <section style="max-width:500px;margin:40px auto;">
+      <div style="background:#fff;padding:24px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+        <h2>Profile Information</h2>
+        <form>
+          <label for="name">Name</label><br>
+          <input type="text" id="name" name="name" value="John Doe" style="width:100%;margin-bottom:10px;"><br>
+          <label for="email">Email</label><br>
+          <input type="email" id="email" name="email" value="john@example.com" style="width:100%;margin-bottom:10px;"><br>
+          <button type="submit" class="cta">Update Profile</button>
+        </form>
+        <hr style="margin:24px 0;">
+        <h2>Order History</h2>
+        <ul style="list-style:none;padding:0;">
+          <li>No orders yet.</li>
+        </ul>
+        <hr style="margin:24px 0;">
+        <a href="#" class="cta" style="background:#dc3545;">Logout</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Million Starr. All rights reserved.</p>
+  </footer>
+  <script>
+    // Dropdown for mobile: toggle on click
+    document.querySelectorAll('.dropbtn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const dropdown = this.nextElementSibling;
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        this.setAttribute('aria-expanded', dropdown.style.display === 'block');
+      });
+    });
+    // Close dropdown when clicking outside
+    window.addEventListener('click', function(e) {
+      document.querySelectorAll('.dropdown-content').forEach(menu => {
+        if (!menu.contains(e.target) && !menu.previousElementSibling.contains(e.target)) {
+          menu.style.display = 'none';
+          if (menu.previousElementSibling) menu.previousElementSibling.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Search overlay logic
+    const searchBtn = document.getElementById('search-btn');
+    const searchOverlay = document.getElementById('search-overlay');
+    const closeSearch = document.getElementById('close-search');
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+
+    searchBtn && searchBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      searchOverlay.style.display = 'flex';
+      searchInput.focus();
+    });
+
+    closeSearch && closeSearch.addEventListener('click', function() {
+      searchOverlay.style.display = 'none';
+      searchInput.value = '';
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        searchOverlay.style.display = 'none';
+        searchInput.value = '';
+      }
+    });
+
+    searchForm && searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Searching for: ' + searchInput.value);
+      searchOverlay.style.display = 'none';
+      searchInput.value = '';
+    });
+  </script>
+</body>
+</html>
