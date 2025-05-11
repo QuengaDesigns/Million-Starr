@@ -5,91 +5,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Million Starr - Shop</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <header class="main-header">
-    <nav class="nav-bar">
+    <nav class="nav-bar" aria-label="Main navigation">
       <div class="nav-left">
-        <button class="dropbtn">☰</button>
-        <div class="dropdown-content">
+        <button class="dropbtn" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu">☰</button>
+        <div class="dropdown-content" id="main-menu">
           <a href="index.html">Home</a>
-          <a href="pages/products.html">Shop</a>
-          <a href="#">Collections</a>
-          <a href="#">Posts</a>
+          <a href="pages/shop.html">Shop</a>
+          <a href="pages/collections.html">Collections</a>
+          <a href="pages/posts.html">Posts</a>
+          <a href="pages/contact.html">Contact</a>
         </div>
       </div>
       <div class="nav-center">
-        <div class="logo">Million Starr</div>
+        <a href="index.html" class="logo" aria-label="Million Starr Home">Million Starr</a>
       </div>
-      <div class="nav-right">
-        <a href="search.html"><i class="fas fa-search"></i></a>
-        <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>  
-        <a href="account.html"><i class="fas fa-user"></i></a>
-        <div class="dropdown">
-          <button class="dropbtn">☰</button>
-          <div class="dropdown-content">
-            <a href="#">Settings</a>
-            <a href="pages/contact.html">Contact</a>
-            <a href="#">Logout</a>
-          </div>
-        </div>
+      <div class="nav-right nav-icons">
+        <a href="#" id="search-btn" aria-label="Search"><i class="fas fa-search"></i></a>
+        <a href="pages/cart.html" aria-label="Cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="pages/account.html" aria-label="Account"><i class="fas fa-user"></i></a>
       </div>
     </nav>
   </header>
 
+  <!-- Search Overlay -->
+  <div id="search-overlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);z-index:2000;align-items:center;justify-content:center;">
+    <form id="search-form" style="background:#fff;padding:32px 24px;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,0.15);display:flex;flex-direction:column;align-items:center;min-width:300px;">
+      <label for="search-input" style="font-size:1.2em;margin-bottom:10px;">Search Million Starr</label>
+      <input id="search-input" type="text" placeholder="Search for products, categories, or pages..." style="width:100%;padding:10px 12px;font-size:1em;border-radius:6px;border:1px solid #ccc;margin-bottom:16px;">
+      <div style="display:flex;gap:10px;">
+        <button type="submit" class="cta">Search</button>
+        <button type="button" id="close-search" class="cta" style="background:#dc3545;">Close</button>
+      </div>
+    </form>
+  </div>
+
   <section class="hero">
     <h1>Shop the Best of Million Starr</h1>
     <p>Explore our premium collection of trendy and stylish apparel.</p>
-    <a href="pages/products.html" class="cta">Shop Now</a>
+    <a href="pages/shop.html" class="cta">Shop Now</a>
   </section>
   <main>
-    <section id="product-grid" class="product-grid">
+    <section id="product-grid" class="product-grid" aria-label="Product grid">
       <div class="product-card">
-        <a href="pages/black_star_tee.html">
+        <a href="pages/products/black_star_tee.html">
           <img src="https://assets.ajio.com/medias/sys_master/root/20230731/hvoX/64c7a1e1eebac147fc968ff5/-473Wx593H-466400123-black-MODEL.jpg" alt="Black Star Tee" />
           <h2>Black Star Tee</h2>
           <p>$35.00</p>
         </a>
       </div>
       <div class="product-card">
-        <a href="pages/morning_star_hoodie.html">
+        <a href="pages/products/morning_star_hoodie.html">
           <img src="https://freshcleantees.com/cdn/shop/files/Black-Hoodie-Model-Front_737x980.jpg?v=1734987639" alt="Morning Star Hoodie" />
           <h2>Morning Star Hoodie</h2>
           <p>$60.00</p>
         </a>
       </div>
       <div class="product-card">
-        <a href="pages/logo_cap.html">
+        <a href="pages/products/logo_cap.html">
           <img src="https://i.etsystatic.com/21657310/r/il/4dd594/4887381785/il_fullxfull.4887381785_h19h.jpg" alt="Logo Cap" />
           <h2>Logo Cap</h2>
           <p>$25.00</p>
         </a>
       </div>
+      <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
+            <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
+            <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
+            <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
+            <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
+            <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
+            <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
+            <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
+            <div class="product-card">
+        <a href="pages/products/coming_soon.html">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon">
+          <h2>Coming Soon</h2>
+          <p>$0.00</p>
+        </a>
+      </div>
 
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
-      <div class="product-card"><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUePLmSWjGgvakeFxpSokd8MQ7PT_fDoStBg&s" alt="Coming Soon"><h2>Coming Soon</h2><p>$0.00</p></a></div>
     </section>
   </main>
-
   <footer>
-    <p>&copy; 2025 Morning Star. All rights reserved.</p>
+    <p>&copy; 2025 Million Starr. All rights reserved.</p>
   </footer>
+  <script>
+    // Dropdown for mobile: toggle on click
+    document.querySelectorAll('.dropbtn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const dropdown = this.nextElementSibling;
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        this.setAttribute('aria-expanded', dropdown.style.display === 'block');
+      });
+    });
+    // Close dropdown when clicking outside
+    window.addEventListener('click', function(e) {
+      document.querySelectorAll('.dropdown-content').forEach(menu => {
+        if (!menu.contains(e.target) && !menu.previousElementSibling.contains(e.target)) {
+          menu.style.display = 'none';
+          if (menu.previousElementSibling) menu.previousElementSibling.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Search overlay logic
+    const searchBtn = document.getElementById('search-btn');
+    const searchOverlay = document.getElementById('search-overlay');
+    const closeSearch = document.getElementById('close-search');
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+
+    searchBtn && searchBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      searchOverlay.style.display = 'flex';
+      searchInput.focus();
+    });
+
+    closeSearch && closeSearch.addEventListener('click', function() {
+      searchOverlay.style.display = 'none';
+      searchInput.value = '';
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        searchOverlay.style.display = 'none';
+        searchInput.value = '';
+      }
+    });
+
+    searchForm && searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Searching for: ' + searchInput.value);
+      searchOverlay.style.display = 'none';
+      searchInput.value = '';
+    });
+  </script>
 </body>
 </html>
